@@ -1,0 +1,87 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- pizza
+- meal_category
+- select_pizza
+- size
+- seek_confirmation
+- customer_info
+- my_order_status
+- order_status
+entities:
+  - meal_category
+  - pizza_type
+  - pizza_size
+  - customer_name
+  - phone_number
+  - address
+  - pincode
+  - confirm_state
+  - order_id
+slots:
+  meal_category:
+    type: text
+  pizza_type:
+    type: text
+  pizza_size:
+    type: text
+  customer_name:
+    type: unfeaturized
+  address:
+    type: unfeaturized
+  phone_number:
+    type: unfeaturized
+  pincode:
+    type: unfeaturized
+  confirm_state:
+    type: text
+  order_id:
+    type: text
+actions:
+  - action_meal_category
+  - action_place_order
+  - action_order_status
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_meal_category:
+    - text: Sure. Do you prefer Vegetarian or Non-Vegetarian?
+  utter_pizza_size:
+    - text: pick the size - Regular, Medium or Large
+  utter_current_order:
+    - text: you have selected 1 {pizza_size} {pizza_type} pizza
+  utter_confirmation_message:
+    - text: Enter CONFIRM or REBUILD
+  utter_ask_customer_name:
+    - text: provide your name
+  utter_ask_address:
+    - text: provide your address
+  utter_ask_phone_number:
+    - text: provide phone number
+  utter_ask_pincode:
+    - text: provide zipcode
+  utter_order_status:
+    - text: provide your order id
+forms:
+- pizza_order_form
+- customer_details_form
